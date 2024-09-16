@@ -3,8 +3,8 @@
 .get.check.points.reads.count<- function(ibam,anno,bam,check_points,PARAMETERS){
   
   # prepare bam parameters
-  which <- RangesList(chr_unclear=IRanges(anno$left, anno$right))
-  names(which)=anno$chr
+  which <- GRanges(seqnames = anno$chr,
+                   ranges = IRanges(anno$left, anno$right))
   what <- c("strand", "pos","mapq")
   param <- ScanBamParam(which=which, what=what)
   
