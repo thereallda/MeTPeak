@@ -25,7 +25,9 @@
   op <- options(warn = (-1))
   ID = keys(txdb, "TXID")
   # temp = select(txdb, ID , c(cols(txdb))[c(9:12,13,16)], "TXID")
-  temp = select(txdb, ID , c(columns(txdb))[c(7:8,12:14)], "TXID")
+  # temp = select(txdb, ID , c(columns(txdb))[c(7:8,12:14)], "TXID")
+  temp = select(txdb, ID , c(columns(txdb))[c(8:9,13:15,18)], "TXID") # retrieve "TXID","EXONCHROM","EXONSTRAND","EXONSTART","EXONEND","GENEID"
+
   options(op)
 
   # get the anno
